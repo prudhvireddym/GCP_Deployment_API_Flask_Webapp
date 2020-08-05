@@ -1,0 +1,48 @@
+{% extends 'HTML/base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='js/my_javascript.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<br>
+<br>
+
+<div class = "row">
+</div>
+  <h3 style="text-align: center;">Select an API Call From Below </h3>
+  <div class="form-group">
+  <form class = "p-3" method="POST" action="/apicalls"> <!-- note action -->
+        <input type="radio" name="select-api" id="projdeploy" onclick="javascript:projDeployCheck();" value="1"> Cancel and removes the preview currently associated with the deployment.</input><br>
+        <input type="radio" name="select-api" id="projdeploy2" onclick="javascript:projDeployCheck();" value="2"> Delete a deployment and all of the resources in the deployment</input><br>
+        <input type="radio" name="select-api" id="projdeploy3" onclick="javascript:projDeployCheck();" value="3"> Get information about a specific deployment</input><br>
+        <input type="radio" name="select-api" id="projresource" onclick="javascript:projDeployCheck();" value="4"> Get the access control policy for a resource</input><br>
+        <input type="radio" name="select-api" id="projname" onclick="javascript:projDeployCheck();" value="5"> Create a deployment and all of the resources described by the deployment manifest</input><br>
+        <input type="radio" name="select-api" id="projname2" onclick="javascript:projDeployCheck();" value="6"> List all deployments for a given project</input><br>
+        <input type="radio" name="select-api" id="projdeploy4" onclick="javascript:projDeployCheck();" value="7"> Patch a deployment and all of the resources described by the deployment manifest</input><br>
+        <input type="radio" name="select-api" id="projresource2" onclick="javascript:projDeployCheck();" value="8"> Set the access control policy on the specified resource</input><br>
+        <input type="radio" name="select-api" id="projdeploy5" onclick="javascript:projDeployCheck();" value="9"> Stops an ongoing operation</input><br>
+        <input type="radio" name="select-api" id="projresource3" onclick="javascript:projDeployCheck();" value="10"> Stops an ongoing operation</input><br>
+        <input type="radio" name="select-api" id="projdeploy6" onclick="javascript:projDeployCheck();" value="11"> Updates a deployment and all of the resources described by the deployment manifest</input><br>
+        <br>
+        <label for="name" id="project-name-label" >Project Name :</label>
+        <input type="text" name="project-name" class="form-control" id="project-name" placeholder="Enter Your Project Name">
+        <br>
+
+        <label for="name" id="project-deployment-label">Deployment :</label>
+        <input type="text" name="deployment-name" class="form-control" id="deployment-name"  placeholder="Enter your deployment name">
+        <br>
+
+
+        <label for="name" id="project-resource-label">Resource Name :</label>
+        <input type="text" name="resource-name" class="form-control" id="resource-name"  placeholder="Enter your resource name">
+        <br>
+
+    </div>
+    <button type="submit" id="submit-button"class="btn btn-primary">Submit</button>
+    </form>
+
+
+
+{% endblock %}

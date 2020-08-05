@@ -1,0 +1,11 @@
+{% extends 'HTML/base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+<script type="text/javascript"
+         src="{{ url_for('static', filename='js/my_javascript.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<textarea class="span20" rows="3"cols="160" placeholder="What's up?" required>{{response}}</textarea>
+{%endblock%}

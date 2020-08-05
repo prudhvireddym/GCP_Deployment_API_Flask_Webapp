@@ -1,0 +1,36 @@
+{% extends 'HTML/base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+<script type="text/javascript"
+         src="{{ url_for('static', filename='js/my_javascript.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<br>
+<br>
+{% if value is not none %}
+<h4 href="/gcloudlogout"  style="text-align: center;">Fill the deployment details to deploy in  {{value}}</h4>
+{% else %}
+<h4 href="/gcloudlogin" style="text-align: center;" >Please sign in first to continue</h4>
+{% endif %}</a>
+
+<form action="/" method="POST" class="p-3"
+  enctype = "multipart/form-data">
+  <div class="form-group">
+
+    <label for="name">Instance Name :</label>
+    <input type="text" class="form-control" name="instance-name" id="instance-name" placeholder="Enter the instance name ">
+    <br>
+
+    <label for="name">Config file :</label>
+    <input type="text" class="form-control" name="config-file" id="config-file" placeholder="Enter a complete github url or a local file in your server">
+    <br>
+    <centre><p>OR</p></centre>
+         <input type = "file" name = "file" />
+    <br>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

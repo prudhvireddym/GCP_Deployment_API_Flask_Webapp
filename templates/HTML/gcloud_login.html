@@ -1,0 +1,22 @@
+{% extends 'HTML/base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+<script type="text/javascript"
+         src="{{ url_for('static', filename='js/my_javascript.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container" style="text-align: center;" >
+    <h3>
+        {% if value is not none %}
+        <a href="/gcloudlogout" style="text-align:center;">sign out of {{value}}</a>
+          {% else %}
+        <a href="/gcloudlogin" style="text-align:center;">Please click here to login</a>
+          {% endif %}
+    </h3>
+</div>
+
+
+
+{%endblock%}

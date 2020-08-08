@@ -186,5 +186,71 @@ def gcloudlogin():
     os.system("gcloud auth login prudhvicareers@gmail.com")
     return render_template('HTML/index.html')
 
+
+
+
+@app.route('/apicalls/<project>/<int:id>')
+def api_calls_project(project,id):
+    x = id
+    if(int(x)==5):
+      content = http.request('https://www.googleapis.com/deploymentmanager/v2/projects/'+project+'/global/deployments',method="POST")
+          
+
+    if(int(x)==6):
+      content = http.request('https://www.googleapis.com/deploymentmanager/v2/projects/'+project+'/global/deployments',method="GET")    
+    return content
+
+
+@app.route('/apicalls/<project>/<deployment>/<int:id>')
+def api_calls_proj_deploy(project,deployment,id):
+      x = id
+
+      if(int(x)==1):
+        content = http.request('https://www.googleapis.com/deploymentmanager/v2/projects/'+project+'/global/deployments/'+deployment,method="POST")
+        
+
+      elif(int(x)==2):
+        content = http.request('https://www.googleapis.com/deploymentmanager/v2/projects/'+project+'/global/deployments/'+deployment,method="DELETE")
+        
+
+      elif(int(x)==3):
+        content = http.request('https://www.googleapis.com/deploymentmanager/v2/projects/'+project+'/global/deployments/'+deployment,method="GET")
+        new_obj = json.loads(content[1])
+        
+
+      elif(int(x)==7):
+        content = http.request('https://www.googleapis.com/deploymentmanager/v2/projects/'+project+'/global/deployments/'+deployment,method="PATCH")
+        
+
+      elif(int(x)==9):
+        content = http.request('https://www.googleapis.com/deploymentmanager/v2/projects/'+project+'/global/deployments/'+deployment+'/setIamPolicy',method="POST")
+        
+
+      elif(int(x)==11):
+        content = http.request('https://www.googleapis.com/deploymentmanager/v2/projects/'+project+'/global/deployments/'+deployment,method="PUT")
+        
+        
+
+      return content
+
+
+@app.route('/apicalls/<project>/<resource>/<int:id>')
+def api_calls_proj_resource(project,resource,id):
+    
+    x = id
+    if(int(x)==4):
+      content = http.request('https://www.googleapis.com/deploymentmanager/v2/projects/'+project+'/global/deployments/'+resource+'/getIamPolicy',method="GET")
+      
+
+    if(int(x)==8):
+      content = http.request('https://www.googleapis.com/deploymentmanager/v2/projects/'+project+'/global/deployments/'+resource+'/setIamPolicy',method="POST")
+      
+
+    if(int(x)==10):
+      content = http.request('https://www.googleapis.com/deploymentmanager/v2/projects/'+project+'/global/deployments/'+resource+'/testIamPermissions',method="POST")
+      
+
+    return render_template('HTML/apicalls.html')
+
 if __name__ == '__main__':
     app.run(debug = True,host="localhost",port=3000)

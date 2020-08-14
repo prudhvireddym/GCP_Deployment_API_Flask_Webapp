@@ -30,7 +30,7 @@ http = credentials.authorize(http)
 service = build("tasks", "v1", http=http)
 
 Deployments_dict = {
-    "Deployment_message":"The below resourses were added successfully"
+    "Deployment_message":"The below resources were added successfully"
 }
 
 

@@ -20,6 +20,22 @@
 
 <body>
 
+<script>
+  function myFunction() {
+    var txt;
+    var request = new XMLHttpRequest()
+
+    var email = email("Please enter your gcloud email:", "yourmail@example.com");
+    if (email == null || email == "") {
+      txt = "Please Enter a valid email";
+    } else {
+      request.open('GET', '/gcloudlogin', true)
+
+    }
+    //document.getElementById("demo").innerHTML = txt;
+  }
+</script>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="#">GCP Deployment</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +52,7 @@
                   {% if value is not none %}
                         <a href="/gcloudlogout"  style="color:whitesmoke">click to signout of {{value}}</a>
                       {% else %}
-                        <a href="/gcloudlogin"style="color:whitesmoke" >Please click to sign in</a>
+                        <a href="/gcloudlogin" style="color:whitesmoke" >Please click to sign in</a>
                       {% endif %}</a>
                 </li>
             </ul>
